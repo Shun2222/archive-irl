@@ -4,7 +4,7 @@ from .environment import GridWorldEnv
 
 
 class MazeEnv(GridWorldEnv):
-    def __init__(self, grid, move_prov=1.0, rewards=Nong):
+    def __init__(self, grid, move_prov=1.0, rewards=None):
         if grid==None:
             grid = get_env_info()
             grid = grid[0] # Learn reward of first agent
