@@ -1,5 +1,7 @@
 import numpy as  p
-from environment import ridWorldEnv
+import env_lib
+from environment import GridWorldEnv
+
 
 class MazeEnv(GridWorldEnv):
     def __init__(self, grid, move_prov=1.0, rewards=Nong):
