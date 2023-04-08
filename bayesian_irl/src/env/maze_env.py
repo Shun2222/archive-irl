@@ -1,6 +1,6 @@
 import numpy as  p
-import .env_lib
-from .environment import GridWorldEnv
+import my_env_lib
+from environment import GridWorldEnv
 
 
 class MazeEnv(GridWorldEnv):
