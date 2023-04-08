@@ -1,6 +1,7 @@
 import numpy as np
 from algos import learn, policy
 from env import LoopEnv
+from env import MazeEnv
 from utils import sample_demos, prob_dists
 import argparse
 import copy
@@ -125,7 +126,8 @@ def main(args):
         assert args.env_id == 1, 'Invalid env id is given'
         env_args = dict(loop_states=[0, 3, 2])
     env_args['rewards'] = [0, 0, 0.7, 0.7]
-    env = LoopEnv(**env_args)
+    #env = LoopEnv(**env_args)
+    env = MazeEnv(grid=None)
 
     # sample expert demonstrations
     expert_q_values = learn.compute_q_via_dp(env, gamma=args.gamma)
