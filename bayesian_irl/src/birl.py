@@ -154,7 +154,7 @@ def main(args):
     for i, axes in enumerate(ax.flatten()):
         axes.hist(sampled_rewards[:, i], range=(-args.r_max, args.r_max))
     fig.suptitle('Loop Environment {}'.format(args.env_id), )
-    path = './' + os.path.join(*os.path.abspath(__file__).split('/')[:-2], 'results',
+    path = '/' + os.path.join(*os.path.abspath(__file__).split('/')[:-2], 'results',
                               'samples_env{}.png'.format(args.env_id))
     plt.savefig(path)
 
