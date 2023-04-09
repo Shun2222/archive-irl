@@ -4,11 +4,11 @@ from env import LoopEnv
 from env import MazeEnv
 from utils import sample_demos, prob_dists
 import argparse
-import copy
 import matplotlib.pyplot as plt
 import os
+import copy
 from tqdm import tqdm
-
+from colorama import Fore, Back, Style
 
 def get_args():
     parser = argparse.ArgumentParser(description='Bayesian Inverse Reinforcement Learning')
@@ -131,6 +131,7 @@ def main(args):
 
     # sample expert demonstrations
     expert_q_values = learn.compute_q_via_dp(env, gamma=args.gamma)
+    """
     if args.policy == 'bol':
         expert_policy = policy.Boltzman(expert_q_values, args.alpha)
         print('pi \n', np.array([np.exp(args.alpha * expert_q_values[s])
@@ -140,6 +141,8 @@ def main(args):
     demos = np.array(list(sample_demos(env, expert_policy)))
     print('sub optimal actions {}/{}'.format(demos[:, 1].sum(), len(demos)))
     assert np.all(expert_q_values[:, 0] > expert_q_values[:, 1]), 'a0 must be optimal action for all the states'
+    """
+    demos = np.array(env.expert)
 
     # run birl
     prior = prepare_prior(args.dist, args.r_max)

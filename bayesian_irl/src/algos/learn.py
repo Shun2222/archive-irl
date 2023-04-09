@@ -59,8 +59,9 @@ def policy_iteration(env, gamma, pi=None):
 def compute_v_for_pi(env, pi, gamma, state_values_pi=None, delta=1e-4):
     """
     policy evaluation
+    pi is the set of optimal actions for each state.
     """
-    trans_probs_pi = np.concatenate([np.expand_dims(env.trans_probs[s, pi[s]], axis=0) for s in range(env.n_states)])
+    trans_probs_pi = np.concatenate([np.expand_dims(env.trans_probs[s, pi[s]], axis=0) for s in range(env.n_states)]) # 各状態の方策piのもとで最適な行動を選択して各状態に移る確率 (size=1*n_states)
     assert trans_probs_pi.shape == 2 * (env.n_states,), 'Invalid shape computed'
     state_values_pi = copy.deepcopy(env.rewards) if state_values_pi is None else state_values_pi
     while True:

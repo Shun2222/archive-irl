@@ -1,4 +1,4 @@
-import numpy as np
+import ngmpy as np
 from gym.envs.toy_text import discrete
 import matplotlib.pyplot as plt
 import seaborn as sns
