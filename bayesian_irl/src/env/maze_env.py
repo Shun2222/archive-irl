@@ -1,5 +1,5 @@
 import numpy as  np
-from .env_lib import *
+from .multi-agent-gridworld-envs import *
 
 class MazeEnv(GridWorldEnv):
     def __init__(self, grid, move_prov=1.0, rewards=None):
